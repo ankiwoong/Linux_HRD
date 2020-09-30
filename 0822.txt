@@ -1,0 +1,89 @@
+﻿강사 : 이 상 천
+         scleemct@naver.com
+======================
+1일차(08.22)
+
+VMWare Workstaion 설치
+Key 입력
+======================
+VMWare Workstaion 설치후 작업
+  Help-->Software Update(필수작업)
+  Edit-->Preferance...--->Workspace(C:\VMs)
+  Edit-->Virtual Network Editor...
+    VMNet8 --> Subnet IP 172.25.3.0  255.255.255.0
+======================
+가상머신 설치
+VM name = Linux-1
+ - Memory : 2GB
+ - hostname : linux1.example.com
+ - IP Address : 172.25.3.11
+ - Gateway : 172.25.3.2
+ - DNS Server : 172.25.3.2
+
+Linux-2
+VM name = Linux-2
+ - Memory : 2GB
+ - hostname : linux2.example.com
+ - IP Address : 172.25.3.12
+ - Gateway : 172.25.3.2
+ - DNS Server : 172.25.3.2
+=====================
+설치 과정(설치 요약)
+ - 시간 및 날짜 = 아시아/서울
+ - 네트워크 및 호스트 = 설정(일반) 
+    Network Automatically ~~~ 선택
+=====================
+root 암호 : redhat
+student 암호 : student
+
+desktop 화면 소개
+
+화면 보호기 해제
+=====================
+hostname 
+hostname 확인
+   cat  /etc/hosname
+   localhost.localdomain
+hostname 변경
+   hostnamectl set-hostname  linux-1.example.com
+
+cat  /etc/hostname
+   linux-1.example.com
+  터미널 창 닫고 다시 연다.
+=====================
+네트워크 설정(GUI)
+  설정 --> 네트워크
+=====================
+teminal 창 여러 개 열기 
+ 같은 창에서 열기
+   - 터미널 창 안에서 Ctrl + Shift + T
+ 다른 창으로 열기
+   - 설정 --> 장치 --> 키보드에서 바로 가기 추가
+    맨 아래에서 +
+
+  이름 : 임의로 입력
+  명령 : gnome-terminal
+  바로 가기 : Alt + Shift + T
+====================
+한글입력 설정
+단계 -1 ibus-hangul.x86_64 프로그램 설치
+           yum -y install ibus-hangul.x86_64  
+단계 -2 재부팅
+        reboot
+단계-3  설정-->지역 및 언어 --> 한국어(hangul)
+한영 전환 : Shift + Space-bar
+====================
+Run level 변경
+GUI Mode로 부팅
+  systemctl  set-default   graphical.target
+CUI Mode로 부팅
+  systemctl  set-default   multi-user.target
+reboot
+
+
+
+
+
+
+
+
